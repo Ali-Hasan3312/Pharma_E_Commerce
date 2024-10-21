@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound'
 import SellersShop from './components/SellersShop'
 import DoctorsSpeciality from './components/DoctorsSpeciality'
 import MyAppointments from './pages/MyAppointments'
+import Products from './pages/Products'
 function App() {
   return (
     <Router>
@@ -20,6 +21,7 @@ function App() {
         <Route path='/shop' element={<SellersShop />} />
         <Route path='/doctors' element={<DoctorsSpeciality />} />
         <Route path='/appointments' element={<MyAppointments />} />
+        <Route path='/shop/products' element={<Products />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />

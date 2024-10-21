@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from "../assets/logo.png"
+import { useNavigate } from 'react-router';
 const stores = [
   { name: 'MediLife Pharmacy', logo: logo },
   { name: 'WellCare Hub', logo: logo },
@@ -14,6 +15,10 @@ const stores = [
 ];
 
 const SellersShop: React.FC = () => {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/shop/products');
+  };
   return (
     <div className=" py-16">
       <h1 className="text-3xl uppercase font-bold px-16">
@@ -22,8 +27,8 @@ const SellersShop: React.FC = () => {
       <ul className=" grid grid-cols-5 mt-4 divide-gray-300">
         {stores.map((store, index) => (
           <li key={index} className="flex items-center flex-col">
-             <img src={logo} className='w-48 cursor-pointer' alt="" />
-            <span className="text-base font-medium cursor-pointer">{store.name}</span>
+             <img src={logo} onClick={handleClick} className='w-48 cursor-pointer' alt="" />
+            <span onClick={handleClick} className="text-base font-medium cursor-pointer">{store.name}</span>
           </li>
         ))}
       </ul>

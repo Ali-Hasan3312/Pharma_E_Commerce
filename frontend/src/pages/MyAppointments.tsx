@@ -30,7 +30,6 @@ const MyAppointments = () => {
         <h1 className="text-3xl font-bold text-center mb-8">
           My Appointments
         </h1>
-
         <div className="overflow-x-auto">
           <table className="w-full table-auto bg-white shadow-md rounded-lg">
             <thead>
