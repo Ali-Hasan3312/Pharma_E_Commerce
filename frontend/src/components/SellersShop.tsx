@@ -16,8 +16,15 @@ const stores = [
 
 const SellersShop: React.FC = () => {
   const navigate = useNavigate();
+  const ScrollToTop = ()=>{
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    })
+  } 
   const handleClick = () => {
     navigate('/shop/products');
+    ScrollToTop()
   };
   return (
     <div className=" py-16">

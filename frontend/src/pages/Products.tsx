@@ -1,7 +1,17 @@
+import toast from "react-hot-toast";
+import { useDispatch } from "react-redux";
 import products from '../assets/products'; // Import the product data
-
+import { addToCart } from "../redux/reducers/cartReducer";
 const Products = () => {
   const pharmacyName = 'HealthPlus Pharmacy';
+  const dispatch = useDispatch()
+  
+  const addToCartHandler = (cartItem:any)=>{
+    if(cartItem.stock < 1) return toast.error("Out Of Stock");
+    toast.success("Added to cart");
+    dispatch(addToCart({ ...cartItem, quantity: cartItem.quantity }));
+    dispatch(addToCart(cartItem));
+  }
 
   return (
     <div className="min-h-screen">
@@ -34,12 +44,13 @@ const Products = () => {
                   src={product.image}
                   alt={product.name}
                   className="w-full h-48 rounded-md mb-4"
-                />
+                /> 
                <div>
                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
                 <p className="text-gray-600 mb-1">{product.description}</p>
                 <p className="text-gray-800 font-bold mb-4">{product.price}</p>
                 <button
+                onClick={()=>addToCartHandler(product)}
                   className="w-full bg-dark-green text-white py-2 rounded-md hover:bg-opacity-75 transition duration-300"
                 >
                   Add to Cart

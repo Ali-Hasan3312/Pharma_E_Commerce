@@ -6,6 +6,7 @@ import digestion from "../assets/images/Speciality Icons/digestion.png"
 import bones from "../assets/images/Speciality Icons/bones.png"
 import { FaStar } from "react-icons/fa";
 import { FaStarHalfAlt } from "react-icons/fa";
+import { Link } from "react-router-dom"
 const specialities = [
     { name: 'Lungs', logo: lungs  },
     { name: 'Liver', logo: liver },
@@ -74,11 +75,12 @@ const DoctorsSpeciality = () => {
     </h1>
     <ul className=" grid grid-cols-4 gap-8 mt-10 divide-gray-300">
       {specialities.map((store, index) => (
-        <li key={index} className="flex items-center flex-col">
+        <li key={index} className="flex items-center relative flex-col">
           <div className=" h-24 w-24 bg-white flex items-center justify-center rounded-full">
-          <img src={store.logo} className='w-16 cursor-pointer' alt="" />
+          <img src={store.logo} className='w-16' alt="" />
           </div>
-          <span className="text-base font-medium cursor-pointer">{store.name}</span>
+          <span className="text-base font-medium">{store.name}</span>
+          <Link to={"/doctors"} className=" absolute w-[50%] h-full top-0"></Link>
         </li>
       ))}
     </ul>

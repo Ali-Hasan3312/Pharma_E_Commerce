@@ -19,8 +19,7 @@ const HeroSection = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => 
     autoplay: true,
     autoplaySpeed: 3000,
   };
-
-  // Updated product offers with Mugs, Cups, and Plates
+  
   const products = [
     {
       image: heroImage,

@@ -1,12 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-
+import { RootState } from "../redux/store";
+import { useSelector } from "react-redux";
 const Navbar = () => {
   const location = useLocation();
 
-  // Helper function to check if the path is active
+  
   const isActive = (paths: string[]) => paths.includes(location.pathname);
-
+  const {cartItems} = useSelector((state: RootState)=>state.cartReducer)
   return (
     <nav className="w-full">
       {/* Top Bar */}
@@ -78,7 +79,7 @@ const Navbar = () => {
             }`}
             to={"/cart"}
           >
-            Cart (0)
+            Cart ({cartItems.length})
           </Link>
         </div>
         <div className="flex items-center gap-4">
