@@ -1,5 +1,5 @@
 // src/pages/DoctorDetails.js
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import doctors from '../assets/doctors';
 import { FaStar, FaStarHalfAlt } from 'react-icons/fa';
 
@@ -42,8 +42,8 @@ const DoctorDetails = () => {
       </div>
      </div>
      <div className='flex items-center gap-24 text-white mt-6'>
-     <button className=' py-2 bg-dark-green px-4 rounded'>Book Now</button>
-     <button className='py-2 bg-dark-green px-4 rounded'>Book Later</button>
+     <Link to={`/book/${doctor.id}`} className=' py-2 bg-dark-green px-4 rounded'>Book Now</Link>
+     
      </div>
     </div>
   );

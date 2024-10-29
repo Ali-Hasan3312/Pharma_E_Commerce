@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 const Register = () => {
     const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-      
       };
   return (
     <div className=" py-32 flex items-center justify-center ">

@@ -10,19 +10,17 @@ const OrderDetails = () => {
  console.log("Cart Items",cartItems)
   return (
     <main className="">
-     
      <div className="flex items-start gap-8 py-28 justify-center">
       <section className={`p-8 bg-white rounded shadow-gray-700 shadow-sm ${cartItems.length>0? " opacity-100" : " opacity-0"}`}>
         <h2 className="tracking-wider uppercase text-center font-semibold">Order Items</h2>
         {cartItems.map((i) => (
           <ProductCard
-            key={i.id} // Add the key prop here
+            key={i.id}
             name={i.name}
             image={i.image}
             price={i.price}
             quantity={i.quantity}
             id={i.id}
-            
           />
         ))}
       </section>
