@@ -31,10 +31,8 @@ const Sidebar = () => {
               </span> */}
           
           </li>
-          {/* Home Submenu */}
-         
             <ul className="ml-8 mt-2 space-y-2 text-sm">
-              <li className={` hover:text-white hover:bg-blue-500 ${isActive(["/doctorDashboard"])? " bg-blue-500 text-white" : "text-gray-800"} rounded-md p-2 cursor-pointer`}>
+              <li className={`hover:text-white hover:bg-blue-500 ${isActive(["/doctorDashboard"])? " bg-blue-500 text-white" : "text-gray-800"} rounded-md p-2 cursor-pointer`}>
                <Link to={"/doctorDashboard"}> All Appointments</Link>
               </li>
               <li className={`${isActive(["/doctorDashboard/conducted"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 rounded-md p-2 cursor-pointer`}>

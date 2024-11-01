@@ -1,16 +1,17 @@
 import { VscSearch } from "react-icons/vsc";
 
 interface DashboardCardProps{
+    id: number;
     count: number;
     title: string;
     bgColor: string;
  }
-const Dashboard = () => {
-    const totalAppointments = 100;
-    const instantAppointments = 20;
-    const approvedAppointments = 50;
-    const scheduledAppointments = 30;
-    const conductedAppointments = 70;
+ type DashboardProps = {
+    items: DashboardCardProps[];
+    name: string;
+  };
+const Dashboard = ({items,name}: DashboardProps) => {
+   
   return (
                <div className="">
                 <div className="flex items-center justify-between">
@@ -21,34 +22,13 @@ const Dashboard = () => {
        </div>
                 </div>
                 <div className=" mt-4">
-                    <h1 className=" text-2xl">Hi, Khalid Javed Welcome Back!</h1>
+                    <h1 className=" text-2xl">Hi, {name} Welcome Back!</h1>
                 </div>
                 <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-8'>
-                    <DashboardCard 
-                        title="Total Appointments" 
-                        count={totalAppointments} 
-                        bgColor="bg-blue-500" 
-                    />
-                    <DashboardCard 
-                        title="Instant Appointments" 
-                        count={instantAppointments} 
-                        bgColor="bg-green-500" 
-                    />
-                    <DashboardCard 
-                        title="Approved Appointments" 
-                        count={approvedAppointments} 
-                        bgColor="bg-yellow-500" 
-                    />
-                    <DashboardCard 
-                        title="Scheduled Appointments" 
-                        count={scheduledAppointments} 
-                        bgColor="bg-orange-500" 
-                    />
-                    <DashboardCard 
-                        title="Conducted Appointments" 
-                        count={conductedAppointments} 
-                        bgColor="bg-purple-500" 
-                    />
+                    {items.map((item)=> (<div key={item.id}>
+                    <DashboardCard id={item.id} title={item.title} count={item.count} bgColor={item.bgColor} />
+                    </div>))}
+                   
                 </div>
                 </div>
           
@@ -56,9 +36,11 @@ const Dashboard = () => {
 }
 const DashboardCard = ({ title, count, bgColor }: DashboardCardProps) => {
     return (
-        <div className={`p-6 text-white rounded-lg shadow-md ${bgColor}`}>
-            <h2 className='text-2xl font-bold'>{count}</h2>
-            <p className='mt-2'>{title}</p>
+        <div className={`h-[130px] pt-6 text-white rounded-lg text-center shadow-md ${bgColor}`}>
+           <div className="flex flex-col gap-3">
+           <p className='mt-2 text-lg'>{title}</p>
+           <h2 className='text-2xl font-bold'>{count}</h2>
+           </div>
         </div>
     );
 };

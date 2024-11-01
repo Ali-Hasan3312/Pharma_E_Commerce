@@ -40,6 +40,7 @@ const Register = () => {
                 <option value="patient">Patient</option>
                 <option value="doctor">Doctor</option>
                 <option value="doctor">Pharmacist</option>
+                <option value="doctor">Rider</option>
             </select>
           </div>
           <div className="mb-4">

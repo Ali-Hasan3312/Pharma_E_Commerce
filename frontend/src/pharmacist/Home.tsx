@@ -1,51 +1,51 @@
-import Dashboard from './Dashboard';
+import Dashboard from '../doctor/Dashboard';
 import Sidebar from './Sidebar';
 
 const DashboardItems = [
     {
         id: 1,
         bgColor: "bg-blue-500",
-        title: "Total Appointments",
+        title: "Total Orders",
         count: 100
         
     },
     {
         id: 2,
         bgColor: "bg-green-500",
-        title: "Instant Appointments",
+        title: "Delivered Orders",
         count: 20
         
     },
     {
         id: 3,
         bgColor: "bg-yellow-500",
-        title: "Approved Appointments",
+        title: "Ready To Ship",
         count: 50
         
     },
     {
         id: 4,
         bgColor: "bg-orange-500",
-        title: "Scheduled Appointments",
+        title: "Pending",
         count: 30
         
     },
     {
         id: 5,
         bgColor: "bg-purple-500",
-        title: "Conducted Appointments",
-        count: 70
+        title: "Cancelled",
+        count: 7
         
     },
   
 ]
-const DoctorHome = () => {
+const PharmacistHome = () => {
     return (
-        <div className='grid grid-cols-[20%_80%] h-screen'>
+        <div className='grid grid-cols-[20%_80%]'>
             <Sidebar />
             <div className='w-full p-6'>
                 
-                 <Dashboard name='Khalid Javed' items={DashboardItems} />
+                 <Dashboard name='Arslan' items={DashboardItems} />
             </div>
         </div>
     );
@@ -53,4 +53,4 @@ const DoctorHome = () => {
 
 
 
-export default DoctorHome;
+export default PharmacistHome;

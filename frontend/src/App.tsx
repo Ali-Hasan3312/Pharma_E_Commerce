@@ -30,6 +30,7 @@ import CancelledAppointments from './doctor/appointments/Cancelled';
 import AllPatients from './doctor/Patients';
 import PrescriptionHistory from './doctor/PrescriptionHistory';
 import Settings from './doctor/Settings';
+import PharmacistHome from './pharmacist/Home';
 
 // App Component
 function App() {
@@ -65,6 +66,8 @@ function App() {
           <Route path="/doctorDashboard/patients" element={<AllPatients />} />
           <Route path="/doctorDashboard/prescriptionHistory" element={<PrescriptionHistory />} />
           <Route path="/doctorDashboard/settings" element={<Settings />} />
+          {/* Pharmacist Routes */}
+          <Route path="/pharmacist" element={<PharmacistHome />} />
         </Routes>
       </div>
       <Footer />
@@ -79,9 +82,17 @@ const DynamicNavbar: React.FC = () => {
 
   // Check if the current route is for doctor pages
   const isDoctorRoute = location.pathname.startsWith('/doctorDashboard');
+  const isPharmacistRoute = location.pathname.startsWith('/pharmacist');
 
   // Render the appropriate navbar
-  return isDoctorRoute ? <></> : <Navbar />;
+  if(isDoctorRoute){
+
+    return <></>;
+  } else if(isPharmacistRoute){
+    return <></>;
+  } else{
+    return <Navbar />
+  }
 };
 
 export default App;
