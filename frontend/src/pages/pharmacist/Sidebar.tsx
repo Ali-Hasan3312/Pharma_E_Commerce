@@ -25,7 +25,6 @@ const Sidebar = () => {
               <FaHome className="text-2xl" />
               <Link to={"/pharmacist"}>Dashboard</Link>
             </div>
-          
               {/* <span>
                 {homeSubmenuOpen ? <FaChevronUp /> : <FaChevronDown />}
               </span> */}
@@ -49,18 +48,18 @@ const Sidebar = () => {
               <Link to={"/pharmacist/cancelled"}>Cancelled</Link>
               </li>
             </ul>
-          <li className={`${isActive(["/pharmacist/patients"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
-            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/patients"}>
+          <li className={`${isActive(["/pharmacist/products"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
+            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/products"}>
             <IoBagHandleSharp className="text-2xl" />
            <span>Products</span></Link>
           </li>
-          <li className={`${isActive(["/pharmacist/patients"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
-            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/patients"}>
+          <li className={`${isActive(["/pharmacist/users"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
+            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/users"}>
             <FaUser className="text-2xl" />
-           <span>Users</span></Link>
+           <span>Staff Members</span></Link>
           </li>
-          <li className={`${isActive(["/pharmacist/patients"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
-            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/patients"}>
+          <li className={`${isActive(["/pharmacist/payments"])? " bg-blue-500 text-white" : "text-gray-800"} text-nowrap hover:text-white hover:bg-blue-500 mt-4 rounded-md p-2 cursor-pointer`}>
+            <Link className="flex items-center gap-4 px-2" to={"/pharmacist/payments"}>
             <MdOutlinePayment className="text-2xl" />
            <span>Payments</span></Link>
           </li>

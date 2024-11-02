@@ -3,7 +3,6 @@ import { LuUser2 } from "react-icons/lu"
 import { MdCall, MdLockOutline, MdOutlineMailOutline } from "react-icons/md"
 import Sidebar from "./Sidebar"
 import { VscSearch } from "react-icons/vsc"
-
 const Settings = () => {
   return (
     <div className="grid grid-cols-[20%_80%] pb-8">

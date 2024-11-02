@@ -13,9 +13,15 @@ import OrderDetails from './components/OrderDetails';
 import SellersShop from './components/SellersShop';
 import Shipping from './components/Shipping';
 import UserSettings from './components/UserSettings';
-import Conducted from './doctor/appointments/Conducted';
-import Scheduled from './doctor/appointments/Scheduled';
-import DoctorHome from './doctor/Home';
+import ApprovedAppointments from './pages/doctor/appointments/Approved';
+import CancelledAppointments from './pages/doctor/appointments/Cancelled';
+import Conducted from './pages/doctor/appointments/Conducted';
+import InstantAppointments from './pages/doctor/appointments/InstantAppointments';
+import Scheduled from './pages/doctor/appointments/Scheduled';
+import DoctorHome from './pages/doctor/Home';
+import AllPatients from './pages/doctor/Patients';
+import PrescriptionHistory from './pages/doctor/PrescriptionHistory';
+import Settings from './pages/doctor/Settings';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
@@ -24,13 +30,12 @@ import MyAppointments from './pages/MyAppointments';
 import NotFound from './pages/NotFound';
 import Products from './pages/Products';
 import Register from './pages/Register';
-import InstantAppointments from './doctor/appointments/InstantAppointments';
-import ApprovedAppointments from './doctor/appointments/Approved';
-import CancelledAppointments from './doctor/appointments/Cancelled';
-import AllPatients from './doctor/Patients';
-import PrescriptionHistory from './doctor/PrescriptionHistory';
-import Settings from './doctor/Settings';
-import PharmacistHome from './pharmacist/Home';
+import DeliveredOrders from './pages/pharmacist/Orders/DeliveredOrders';
+import PharmacistHome from './pages/pharmacist/Home';
+import ReadyToShip from './pages/pharmacist/Orders/ReadyToShip';
+import PendingOrders from './pages/pharmacist/Orders/PendingOrders';
+import CancelledOrders from './pages/pharmacist/Orders/CancelledOrders';
+import Users from './pages/pharmacist/Users';
 
 // App Component
 function App() {
@@ -68,6 +73,11 @@ function App() {
           <Route path="/doctorDashboard/settings" element={<Settings />} />
           {/* Pharmacist Routes */}
           <Route path="/pharmacist" element={<PharmacistHome />} />
+          <Route path="/pharmacist/delivered" element={<DeliveredOrders />} />
+          <Route path="/pharmacist/ready" element={<ReadyToShip />} />
+          <Route path="/pharmacist/pending" element={<PendingOrders />} />
+          <Route path="/pharmacist/cancelled" element={<CancelledOrders />} />
+          <Route path="/pharmacist/users" element={<Users />} />
         </Routes>
       </div>
       <Footer />

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { user } from "../assets/users";
+import { user } from "../../assets/users";
 const DoctorNavbar = () => {
     const location = useLocation();
     const [isOpen,setIsOpen] = useState(false)
