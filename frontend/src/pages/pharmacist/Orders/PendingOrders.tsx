@@ -5,7 +5,7 @@ import p1 from "../../../assets/images/Products/Cold and Flu Medicine.jpeg";
 import p2 from "../../../assets/images/Products/Digital Thermometer.jpeg";
 import p3 from "../../../assets/images/Products/Disinfectant Wipes.jpeg";
 import TableHOC from '../../../components/TableHOC';
-import Sidebar from '../Sidebar';
+import PharmacistSidebar from '../Sidebar';
 
 interface DataType {
     id: number;
@@ -59,7 +59,7 @@ const PendingOrders = () => {
     ),[columns,rows])
     return (
         <div className="grid grid-cols-[20%_80%]">
-        <Sidebar />
+        <PharmacistSidebar />
         <div className="px-8 mt-8">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-semibold">Pharma</h1>

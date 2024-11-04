@@ -1,12 +1,18 @@
 import { FaRegAddressBook } from "react-icons/fa"
 import { LuUser2 } from "react-icons/lu"
 import { MdCall, MdLockOutline, MdOutlineMailOutline } from "react-icons/md"
-import Sidebar from "./Sidebar"
 import { VscSearch } from "react-icons/vsc"
-const Settings = () => {
+import { useLocation } from "react-router"
+import DoctorSidebar from "./Sidebar"
+import PharmacistSidebar from "../pharmacist/Sidebar"
+type ImageProps = {
+  image:string
+}
+const Settings = ({image}:ImageProps) => {
+  
   return (
     <div className="grid grid-cols-[20%_80%] pb-8">
-      <Sidebar />
+      <DynamicSidebar />
       <div className="px-8 mt-8">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold">Pharma</h1>
@@ -28,7 +34,7 @@ const Settings = () => {
               <div className="h-24 w-[90%] flex gap-8 mt-12 items-center mx-auto">
                 <div>
                   <img
-                    src="https://plus.unsplash.com/premium_photo-1661766569022-1b7f918ac3f3?w=500"
+                    src={image}
                     className="rounded-md"
                     alt="User"
                   />
@@ -185,5 +191,21 @@ const Settings = () => {
     </div>
   )
 }
+
+const DynamicSidebar: React.FC = () => {
+  const location = useLocation();
+
+  // Check if the current route is for doctor pages
+  const isDoctorRoute = location.pathname.startsWith('/doctorDashboard');
+  const isPharmacistRoute = location.pathname.startsWith('/pharmacist');
+
+  // Render the appropriate navbar
+  if(isDoctorRoute){
+    return <DoctorSidebar />
+    
+  } else if(isPharmacistRoute){
+    return <PharmacistSidebar />;
+  } 
+};
 
 export default Settings

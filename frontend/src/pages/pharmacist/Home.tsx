@@ -1,5 +1,5 @@
 import Dashboard from '../doctor/Dashboard';
-import Sidebar from './Sidebar';
+import PharmacistSidebar from './Sidebar';
 
 const DashboardItems = [
     {
@@ -42,7 +42,7 @@ const DashboardItems = [
 const PharmacistHome = () => {
     return (
         <div className='grid grid-cols-[20%_80%]'>
-            <Sidebar />
+            <PharmacistSidebar />
             <div className='w-full p-6'>
                 
                  <Dashboard name='Arslan' items={DashboardItems} />

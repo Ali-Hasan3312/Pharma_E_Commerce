@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
-import Sidebar from './Sidebar';
+import { ReactElement, useEffect, useMemo, useState } from 'react';
 import { VscSearch } from 'react-icons/vsc';
 import { Column } from 'react-table';
 import TableHOC from '../../components/TableHOC';
+import DoctorSidebar from './Sidebar';
 
 // Define the TypeScript type for a prescription entry
 interface Prescription {
@@ -11,7 +11,7 @@ interface Prescription {
   doctor: string;
   date: string;
   medications: string;
-  status: string;
+  status: ReactElement;
 }
 const columns: Column<Prescription>[] = [
   { Header: 'Id', accessor: "id" },
@@ -29,7 +29,7 @@ const PrescriptionHistory: React.FC = () => {
 
   useEffect(() => {
     // Simulated data (In practice, fetch from an API)
-    const data: Prescription[] = [
+    const data = [
       { id: 1, patient: 'John Doe', doctor: 'Dr. Smith', date: '2024-10-15', medications: 'Ibuprofen, Paracetamol', status: 'Active' },
       { id: 2, patient: 'Jane Doe', doctor: 'Dr. Williams', date: '2024-09-20', medications: 'Amoxicillin', status: 'Expired' },
       { id: 3, patient: 'Alice Johnson', doctor: 'Dr. Clark', date: '2024-08-10', medications: 'Cough Syrup, Vitamin D', status: 'Expired' },
@@ -40,7 +40,9 @@ const PrescriptionHistory: React.FC = () => {
   doctor: i.doctor,
   date: i.date,
   medications: i.medications,
-  status: i.status,
+  status: (<>
+  <p className={`${i.status==="Active"? "text-green-500" : "text-red-500"}`}>{i.status}</p>
+  </>),
     })))
   }, []);
   const Table = useMemo(()=> TableHOC<Prescription>(
@@ -51,7 +53,7 @@ const PrescriptionHistory: React.FC = () => {
 ),[columns,rows])
   return (
     <div className="grid grid-cols-[20%_80%] h-screen">
-      <Sidebar />
+      <DoctorSidebar />
       <div className="px-8 mt-8">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold">Pharma</h1>

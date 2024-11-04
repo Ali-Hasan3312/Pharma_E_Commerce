@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCog, FaHome, FaUser } from "react-icons/fa";
 import { MdOutlineHistory } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-const Sidebar = () => {
+const DoctorSidebar = () => {
   
   const [homeSubmenuOpen, setHomeSubmenuOpen] = useState(false); // Controls Home submenu
   const location = useLocation();
@@ -77,4 +77,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default DoctorSidebar;

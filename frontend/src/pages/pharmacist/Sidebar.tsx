@@ -3,7 +3,7 @@ import { FaCog, FaHome, FaUser } from "react-icons/fa";
 import { IoBagHandleSharp } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
 import { Link, useLocation } from "react-router-dom";
-const Sidebar = () => {
+const PharmacistSidebar = () => {
   const [homeSubmenuOpen, setHomeSubmenuOpen] = useState(false); // Controls Home submenu
   const location = useLocation();
   const isActive = (paths: string[]) => paths.includes(location.pathname);
@@ -79,4 +79,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default PharmacistSidebar;

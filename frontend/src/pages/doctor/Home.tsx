@@ -1,5 +1,6 @@
 import Dashboard from './Dashboard';
-import Sidebar from './Sidebar';
+import DoctorSidebar from './Sidebar';
+
 
 const DashboardItems = [
     {
@@ -42,7 +43,7 @@ const DashboardItems = [
 const DoctorHome = () => {
     return (
         <div className='grid grid-cols-[20%_80%] h-screen'>
-            <Sidebar />
+            <DoctorSidebar />
             <div className='w-full p-6'>
                 
                  <Dashboard name='Khalid Javed' items={DashboardItems} />

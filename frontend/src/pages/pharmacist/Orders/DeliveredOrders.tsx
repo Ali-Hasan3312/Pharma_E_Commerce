@@ -1,12 +1,12 @@
 import { ReactElement, useEffect, useMemo, useState } from 'react';
+import { VscSearch } from 'react-icons/vsc';
+import { Link } from 'react-router-dom';
+import { Column } from 'react-table';
+import p3 from "../../../assets/images/Products/Cough Syrup.jpeg";
 import p1 from "../../../assets/images/Products/Eye Drops.jpeg";
 import p2 from "../../../assets/images/Products/vitamin c.jpeg";
-import p3 from "../../../assets/images/Products/Cough Syrup.jpeg";
-import { Column } from 'react-table';
-import { Link } from 'react-router-dom';
-import { VscSearch } from 'react-icons/vsc';
-import Sidebar from '../Sidebar';
 import TableHOC from '../../../components/TableHOC';
+import PharmacistSidebar from '../Sidebar';
 interface DataType {
     id: number;
     photo: ReactElement;
@@ -64,7 +64,7 @@ const DeliveredOrders = () => {
     ),[columns,rows])
     return (
         <div className="grid grid-cols-[20%_80%]">
-        <Sidebar />
+        <PharmacistSidebar />
         <div className="px-8 mt-8">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-semibold">Pharma</h1>

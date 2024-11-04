@@ -13,6 +13,8 @@ import OrderDetails from './components/OrderDetails';
 import SellersShop from './components/SellersShop';
 import Shipping from './components/Shipping';
 import UserSettings from './components/UserSettings';
+import About from './pages/About';
+import Contact from './pages/Contact';
 import ApprovedAppointments from './pages/doctor/appointments/Approved';
 import CancelledAppointments from './pages/doctor/appointments/Cancelled';
 import Conducted from './pages/doctor/appointments/Conducted';
@@ -22,20 +24,19 @@ import DoctorHome from './pages/doctor/Home';
 import AllPatients from './pages/doctor/Patients';
 import PrescriptionHistory from './pages/doctor/PrescriptionHistory';
 import Settings from './pages/doctor/Settings';
-import About from './pages/About';
-import Contact from './pages/Contact';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import MyAppointments from './pages/MyAppointments';
 import NotFound from './pages/NotFound';
+import PharmacistHome from './pages/pharmacist/Home';
+import CancelledOrders from './pages/pharmacist/Orders/CancelledOrders';
+import DeliveredOrders from './pages/pharmacist/Orders/DeliveredOrders';
+import PendingOrders from './pages/pharmacist/Orders/PendingOrders';
+import ReadyToShip from './pages/pharmacist/Orders/ReadyToShip';
+import Payments from './pages/pharmacist/Payments';
+import Users from './pages/pharmacist/Users';
 import Products from './pages/Products';
 import Register from './pages/Register';
-import DeliveredOrders from './pages/pharmacist/Orders/DeliveredOrders';
-import PharmacistHome from './pages/pharmacist/Home';
-import ReadyToShip from './pages/pharmacist/Orders/ReadyToShip';
-import PendingOrders from './pages/pharmacist/Orders/PendingOrders';
-import CancelledOrders from './pages/pharmacist/Orders/CancelledOrders';
-import Users from './pages/pharmacist/Users';
 
 // App Component
 function App() {
@@ -70,7 +71,7 @@ function App() {
           <Route path="/doctorDashboard/cancelled" element={<CancelledAppointments />} />
           <Route path="/doctorDashboard/patients" element={<AllPatients />} />
           <Route path="/doctorDashboard/prescriptionHistory" element={<PrescriptionHistory />} />
-          <Route path="/doctorDashboard/settings" element={<Settings />} />
+          <Route path="/doctorDashboard/settings" element={<Settings image="https://plus.unsplash.com/premium_photo-1661766569022-1b7f918ac3f3?w=500" />} />
           {/* Pharmacist Routes */}
           <Route path="/pharmacist" element={<PharmacistHome />} />
           <Route path="/pharmacist/delivered" element={<DeliveredOrders />} />
@@ -78,6 +79,8 @@ function App() {
           <Route path="/pharmacist/pending" element={<PendingOrders />} />
           <Route path="/pharmacist/cancelled" element={<CancelledOrders />} />
           <Route path="/pharmacist/users" element={<Users />} />
+          <Route path="/pharmacist/payments" element={<Payments />} />
+          <Route path="/pharmacist/settings" element={<Settings image='https://images.unsplash.com/photo-1657551856874-d492ef8ecba0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBoYXJtYWNpc3R8ZW58MHx8MHx8fDA%3D' />} />
         </Routes>
       </div>
       <Footer />

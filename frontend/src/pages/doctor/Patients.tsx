@@ -1,8 +1,8 @@
-import { useState, useEffect, useMemo } from 'react';
-import Sidebar from './Sidebar';
+import { useEffect, useMemo, useState } from 'react';
 import { VscSearch } from 'react-icons/vsc';
 import { Column } from 'react-table';
 import TableHOC from '../../components/TableHOC';
+import DoctorSidebar from './Sidebar';
 
 // Define the TypeScript type for a patient
 interface Patient {
@@ -48,7 +48,7 @@ const AllPatients: React.FC = () => {
 
   return (
     <div className="grid grid-cols-[20%_80%] h-screen">
-      <Sidebar />
+      <DoctorSidebar />
       <div className="px-8 mt-8">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-semibold">Pharma</h1>

@@ -1,11 +1,11 @@
 import { ReactElement, useEffect, useMemo, useState } from 'react';
 import { VscSearch } from 'react-icons/vsc';
 import { Column } from 'react-table';
-import p1 from "../../../assets/images/Products/Sleep Aid Supplement.jpeg";
-import p2 from "../../../assets/images/Products/First Aid Kit.jpeg";
 import p3 from "../../../assets/images/Products/Disinfectant Wipes.jpeg";
+import p2 from "../../../assets/images/Products/First Aid Kit.jpeg";
+import p1 from "../../../assets/images/Products/Sleep Aid Supplement.jpeg";
 import TableHOC from '../../../components/TableHOC';
-import Sidebar from '../Sidebar';
+import PharmacistSidebar from '../Sidebar';
 
 interface DataType {
     id: number;
@@ -59,7 +59,8 @@ const CancelledOrders = () => {
     ),[columns,rows])
     return (
         <div className="grid grid-cols-[20%_80%]">
-        <Sidebar />
+        <PharmacistSidebar
+         />
         <div className="px-8 mt-8">
           <div className="flex items-center justify-between">
             <h1 className="text-2xl font-semibold">Pharma</h1>

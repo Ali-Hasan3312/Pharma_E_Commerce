@@ -1,9 +1,9 @@
 import { ReactElement, useEffect, useMemo, useState } from "react";
+import { MdDelete } from "react-icons/md";
+import { VscSearch } from "react-icons/vsc";
 import { Column } from "react-table";
 import TableHOC from "../../components/TableHOC";
-import { VscSearch } from "react-icons/vsc";
-import Sidebar from "./Sidebar";
-import { MdDelete } from "react-icons/md";
+import PharmacistSidebar from "./Sidebar";
 interface DataType {
     photo: ReactElement;
     name: string;
@@ -78,7 +78,7 @@ const Table = useMemo(()=> TableHOC<DataType>(
 
   return (
     <div className="grid grid-cols-[20%_80%]">
-    <Sidebar />
+    <PharmacistSidebar />
     <div className="px-8 mt-8">
       <div className="flex items-center justify-between">
         <h1 className="text-2xl font-semibold">Pharma</h1>
