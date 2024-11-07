@@ -55,8 +55,8 @@ const HeroSection = forwardRef<HTMLDivElement, ContactSectionProps>((_, ref) => 
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
 
               {/* Content */}
-              <div className="relative top-4 left-[25%] z-10 flex flex-col items-start justify-center h-full p-8 md:p-16 text-white space-y-6">
-                <h1 className="text-5xl w-[50%] max-sm:text-3xl font-extrabold leading-tight tracking-wide drop-shadow-md">
+              <div className="relative top-4 left-0 md:left-[25%] z-10 flex flex-col items-start justify-center h-full p-8 md:p-16 text-white space-y-6">
+                <h1 className="md:text-5xl text-xl w-[70%] md:w-[50%] font-extrabold leading-tight tracking-wide drop-shadow-md">
                   {product.title}
                 </h1>
                 <p className="max-w-lg text-lg md:text-xl text-white/80 drop-shadow-sm">

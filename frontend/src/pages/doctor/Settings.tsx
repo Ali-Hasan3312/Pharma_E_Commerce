@@ -1,7 +1,15 @@
 import { FaRegAddressBook } from "react-icons/fa"
 import { LuUser2 } from "react-icons/lu"
 import { MdCall, MdLockOutline, MdOutlineMailOutline } from "react-icons/md"
-import { VscSearch } from "react-icons/vsc"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { CiSettings } from 'react-icons/ci';
+import { FiUser } from 'react-icons/fi';
+import { GrLogout } from 'react-icons/gr';
+import { VscSearch } from 'react-icons/vsc';
 import { useLocation } from "react-router"
 import DoctorSidebar from "./Sidebar"
 import PharmacistSidebar from "../pharmacist/Sidebar"
@@ -11,20 +19,47 @@ type ImageProps = {
 const Settings = ({image}:ImageProps) => {
   
   return (
-    <div className="grid grid-cols-[20%_80%] pb-8">
-      <DynamicSidebar />
+    <div className="bg-custom-sky w-full">
+     
       <div className="px-8 mt-8">
-        <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-semibold">Pharma</h1>
-          <div className="h-12 w-64 bg-white rounded-md flex items-center justify-between px-4 font-normal">
-            <input
-              type="text"
-              placeholder="Search"
-              className="h-full placeholder:text-gray-500 w-[80%] rounded-md outline-none"
-            />
-            <VscSearch className="z-20" />
-          </div>
-        </div>
+      <div className="flex items-center justify-between bg-white py-1 shadow px-2">
+    <div className="h-12 w-64 bg-white rounded-md flex items-center justify-between px-4 font-normal">
+<VscSearch className=" z-20"/>
+<input type="text" placeholder="Search" className="h-full placeholder:text-gray-500 w-[80%] rounded-md outline-none" />
+</div>
+<Popover>
+
+<PopoverTrigger>
+      <div>
+        <img className="h-12 w-12 rounded-full" src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/avatars/1.png" alt="" />
+      </div>
+</PopoverTrigger>
+<PopoverContent className="flex justify-center w-[180px] mr-4 mt-2">
+<div className="flex flex-col justify-center">
+<div className="flex items-center gap-4 cursor-pointer w-[150px] px-2 transition-all duration-200 py-2 hover:bg-gray-100">
+<img className="h-10 w-10 rounded-full" src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/avatars/1.png" alt="" />
+<div className="flex flex-col">
+    <h2 className="text-sm">John Doe</h2>
+    <span className="text-xs text-gray-500">Admin</span>
+</div>
+</div>
+<hr className="mt-2" />
+<div className="flex items-center text-sm mt-2 gap-4 text-gray-700 cursor-pointer w-[150px] px-2 transition-all duration-200 py-2 hover:bg-gray-100">
+<FiUser className="text-lg" />
+<span>My Profile</span>
+</div>
+<div className="flex items-center text-sm gap-4 text-gray-700 cursor-pointer w-[150px] px-2 transition-all duration-200 py-2 hover:bg-gray-100">
+<CiSettings className="text-lg" />
+<span>Settings</span>
+</div>
+<div className="flex items-center gap-2 cursor-pointer rounded justify-center text-sm mt-2 bg-dark-green text-white py-2">
+<span>Logout</span>
+<GrLogout  className="text-lg" />
+</div>
+</div>
+</PopoverContent>
+</Popover>
+    </div>
       
          <div className="grid grid-cols-2">
          <div className="h-[660px] w-[530px] bg-white rounded-md mt-8">
@@ -34,7 +69,7 @@ const Settings = ({image}:ImageProps) => {
               <div className="h-24 w-[90%] flex gap-8 mt-12 items-center mx-auto">
                 <div>
                   <img
-                    src={image}
+                    src="https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/avatars/1.png"
                     className="rounded-md"
                     alt="User"
                   />
@@ -102,7 +137,7 @@ const Settings = ({image}:ImageProps) => {
                   </div>
                   <button
                   
-                    className="h-14 rounded w-36 font-medium text-lg text-white bg-custom-blue hover:bg-white hover:border hover:border-custom-blue hover:text-custom-blue transition-all duration-300"
+                    className="h-14 rounded w-36 font-medium text-lg text-white bg-dark-green hover:bg-white hover:border hover:border-dark-green hover:text-dark-green transition-all duration-300"
                   >
                     Save Changes
                   </button>
@@ -148,7 +183,7 @@ const Settings = ({image}:ImageProps) => {
             </div>
           </div>
           <button
-          className="h-14 rounded w-36 font-medium text-lg text-white bg-custom-blue hover:bg-white hover:border hover:border-custom-blue hover:text-custom-blue transition-all duration-300">Change Email</button>
+          className="h-14 rounded w-36 font-medium text-lg text-white bg-dark-green hover:bg-white hover:border hover:border-dark-green hover:text-dark-green transition-all duration-300">Change Email</button>
          </div>
           </div>
          <div className=" h-[420px] w-[530px] bg-white lg:ml-8 sm:ml-0 rounded-md mt-8">
@@ -177,13 +212,13 @@ const Settings = ({image}:ImageProps) => {
             <label className="text-base">New Password Again</label>
             <div className="relative w-[100%]">
             <input
-            type="password" placeholder="New password again" className="h-12 w-[220px] rounded-md border border-gray-300 outline-none px-8" />
+            type="password" placeholder="Password again" className="h-12 w-[220px] rounded-md border border-gray-300 outline-none px-8" />
             <MdLockOutline className="absolute left-2 top-4 text-gray-500 text-lg" />
             </div>
           </div>  
          </div>
           <button
-          className="h-14 mt-6 ml-6 rounded w-40 font-medium text-lg text-white bg-custom-blue hover:bg-white hover:border hover:border-custom-blue hover:text-custom-blue transition-all duration-300">Change Password</button>
+          className="h-14 mt-6 ml-6 rounded px-4 font-medium text-lg text-white bg-dark-green hover:bg-white hover:border hover:border-dark-green hover:text-dark-green transition-all duration-300">Change Password</button>
          <div className="h-12 mt-6"></div>
           </div>
          </div>
@@ -192,20 +227,6 @@ const Settings = ({image}:ImageProps) => {
   )
 }
 
-const DynamicSidebar: React.FC = () => {
-  const location = useLocation();
 
-  // Check if the current route is for doctor pages
-  const isDoctorRoute = location.pathname.startsWith('/doctorDashboard');
-  const isPharmacistRoute = location.pathname.startsWith('/pharmacist');
-
-  // Render the appropriate navbar
-  if(isDoctorRoute){
-    return <DoctorSidebar />
-    
-  } else if(isPharmacistRoute){
-    return <PharmacistSidebar />;
-  } 
-};
 
 export default Settings

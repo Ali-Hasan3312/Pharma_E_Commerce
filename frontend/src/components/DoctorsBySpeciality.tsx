@@ -68,16 +68,13 @@ const doctors = [
     },
   ];
   
-  
-  
-
 const DoctorsBySpeciality = () => {
   return (
     <div className="py-16">
-      <h1 className="text-3xl text-center mt-2 uppercase font-bold px-16">
+      <h1 className="md:text-3xl text-xl text-center mt-2 uppercase font-bold px-0 md:px-16">
         All Specialized Doctors
       </h1>
-      <ul className="grid grid-cols-4 gap-8 mt-16 divide-gray-300">
+      <ul className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 divide-gray-300">
         {doctors.map((doctor) => (
           <li key={doctor.id} className="">
             <Link to={`/doctor/${doctor.id}`} className="flex items-center gap-2 flex-col" style={{ textDecoration: 'none', color: 'inherit' }}>

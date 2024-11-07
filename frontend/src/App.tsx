@@ -1,5 +1,5 @@
 import { Toaster } from 'react-hot-toast';
-import { Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
+import { Outlet, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 
 // Import Components
@@ -37,7 +37,60 @@ import Payments from './pages/pharmacist/Payments';
 import Users from './pages/pharmacist/Users';
 import Products from './pages/Products';
 import Register from './pages/Register';
-
+import AdminHome from './pages/admin/Home';
+import { AppSidebar } from '@/components/app-sidebar';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import { FaCog, FaUser } from 'react-icons/fa';
+import { MdOutlineHistory } from 'react-icons/md';
+import { RiCalendarScheduleFill, RiFirstAidKitFill } from 'react-icons/ri';
+import { TbBellRingingFilled } from 'react-icons/tb';
+import { FcApproval } from 'react-icons/fc';
+import { IoIosCheckmarkCircle } from 'react-icons/io';
+// Sidebar1 Items
+const SidebarItems = [
+  {
+      heading: "All Appointments",
+      headingIcon: <RiFirstAidKitFill className='text-3xl text-dark-green' />,
+      headinglink: "/doctorDashboard",
+      subitems: [
+          {
+              icon: <TbBellRingingFilled className='text-3xl text-dark-green' />,
+              url: "/doctorDashboard/instant",
+              title: "Instant",
+          },
+          {
+              icon: <FcApproval className='text-3xl text-dark-green' />,
+              url: "/doctorDashboard/approved",
+              title: "Approved",
+          },
+          {
+              icon: <RiCalendarScheduleFill className='text-3xl text-dark-green' />,
+              url: "/doctorDashboard/scheduled",
+              title: "Scheduled",
+          },
+          {
+              icon: <IoIosCheckmarkCircle className='text-3xl text-dark-green' />,
+              url: "/doctorDashboard/conducted",
+              title: "Conducted",
+          },
+      ] 
+  },
+  {
+      heading: "Patients",
+      headingIcon: <FaUser className='text-dark-green text-3xl' />,
+      headinglink: "/doctorDashboard/patients",
+  },
+  {
+      heading: "Prescription History",
+      headingIcon: <MdOutlineHistory className='text-dark-green text-3xl' />,
+      headinglink: "/doctorDashboard/prescriptionHistory",
+  },
+  {
+      heading: "Settings",
+      headingIcon: <FaCog className='text-dark-green text-3xl' />,
+      headinglink: "/doctorDashboard/settings",
+  },
+]
 // App Component
 function App() {
   return (
@@ -63,6 +116,8 @@ function App() {
           <Route path="/orderDetails" element={<OrderDetails />} />
           <Route path="*" element={<NotFound />} />
           {/* Doctor Routes */}
+        
+          <Route element={<DoctorLayout />}>
           <Route path="/doctorDashboard" element={<DoctorHome />} />
           <Route path="/doctorDashboard/conducted" element={<Conducted />} />
           <Route path="/doctorDashboard/scheduled" element={<Scheduled />} />
@@ -72,6 +127,7 @@ function App() {
           <Route path="/doctorDashboard/patients" element={<AllPatients />} />
           <Route path="/doctorDashboard/prescriptionHistory" element={<PrescriptionHistory />} />
           <Route path="/doctorDashboard/settings" element={<Settings image="https://plus.unsplash.com/premium_photo-1661766569022-1b7f918ac3f3?w=500" />} />
+          </Route>
           {/* Pharmacist Routes */}
           <Route path="/pharmacist" element={<PharmacistHome />} />
           <Route path="/pharmacist/delivered" element={<DeliveredOrders />} />
@@ -81,13 +137,27 @@ function App() {
           <Route path="/pharmacist/users" element={<Users />} />
           <Route path="/pharmacist/payments" element={<Payments />} />
           <Route path="/pharmacist/settings" element={<Settings image='https://images.unsplash.com/photo-1657551856874-d492ef8ecba0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHBoYXJtYWNpc3R8ZW58MHx8MHx8fDA%3D' />} />
+            {/* Admin Routes */}
+            <Route path='/admin' element={<AdminHome />} />
         </Routes>
       </div>
-      <Footer />
+      <DynamicFooter />
+
       <Toaster />
     </Router>
   );
 }
+
+// Component for Layout with Sidebar for Doctor Routes
+const DoctorLayout = () => (
+  <SidebarProvider>
+    <AppSidebar SidebarItems={SidebarItems} />
+    <SidebarTrigger />
+   
+    <Outlet />
+   
+  </SidebarProvider>
+);
 
 // Dynamic Navbar Component
 const DynamicNavbar: React.FC = () => {
@@ -96,6 +166,7 @@ const DynamicNavbar: React.FC = () => {
   // Check if the current route is for doctor pages
   const isDoctorRoute = location.pathname.startsWith('/doctorDashboard');
   const isPharmacistRoute = location.pathname.startsWith('/pharmacist');
+  const isAdminRoute = location.pathname.startsWith('/admin');
 
   // Render the appropriate navbar
   if(isDoctorRoute){
@@ -103,8 +174,32 @@ const DynamicNavbar: React.FC = () => {
     return <></>;
   } else if(isPharmacistRoute){
     return <></>;
+  } else if(isAdminRoute){
+    return <></>;
   } else{
     return <Navbar />
+  }
+};
+const DynamicFooter: React.FC = () => {
+  const location = useLocation();
+
+  // Check if the current route is for doctor pages
+  const isDoctorRoute = location.pathname.startsWith('/doctorDashboard');
+  const isPharmacistRoute = location.pathname.startsWith('/pharmacist');
+  const isAdminRoute = location.pathname.startsWith('/admin');
+
+  // Render the appropriate navbar
+  if(isDoctorRoute){
+
+    return <></>;
+  } else if(isPharmacistRoute){
+    return <></>;
+  }
+  else if(isAdminRoute){
+    return <></>;
+  }
+  else{
+    return <Footer />
   }
 };
 

@@ -10,7 +10,6 @@ const Home = () => {
     <PrescriptionUpload />
     <SellersShop />
     <DoctorsSpeciality />
-  
     </>
   )
 }

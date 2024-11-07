@@ -28,14 +28,14 @@ const SellersShop: React.FC = () => {
   };
   return (
     <div className=" py-16">
-      <h1 className="text-3xl uppercase font-bold px-16">
+      <h1 className="md:text-3xl text-xl max-sm:text-center uppercase font-bold px-16">
         Shop By Sellers
       </h1>
-      <ul className=" grid grid-cols-5 mt-4 divide-gray-300">
+      <ul className=" grid grid-cols-3 md:grid-cols-5 mt-4 divide-gray-300">
         {stores.map((store, index) => (
           <li key={index} className="flex items-center flex-col">
-             <img src={logo} onClick={handleClick} className='w-48 cursor-pointer' alt="" />
-            <span onClick={handleClick} className="text-base font-medium cursor-pointer">{store.name}</span>
+             <img src={logo} onClick={handleClick} className='md:w-48 w-36 cursor-pointer' alt="" />
+            <span onClick={handleClick} className="md:text-base text-sm font-medium cursor-pointer">{store.name}</span>
           </li>
         ))}
       </ul>

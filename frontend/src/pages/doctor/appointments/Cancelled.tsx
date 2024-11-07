@@ -6,18 +6,18 @@ import TableHOC from '../../../components/TableHOC';
 
 // Define the TypeScript type for a cancelled appointment
 interface CancelledAppointment {
-  id: number;
+  image: ReactElement;
   patient: string;
-  date: string;
-  time: string;
+  description: string;
+  age:string;
   status: ReactElement;
 }
 const columns: Column<CancelledAppointment>[] = [
-  { Header: 'Id', accessor: "id" },
-  { Header: 'Patient', accessor: "patient" },
-  { Header: 'Date', accessor: "date" },
-  { Header: 'Time', accessor: "time" },
-  { Header: 'Status', accessor: "status" },
+  { Header: 'Patient Image', accessor: "image" },
+  { Header: 'Patient Name', accessor: "patient" },
+  { Header: 'Age', accessor: "age" },
+  { Header: 'Description', accessor: "description" },
+  { Header: 'Change Status', accessor: "status" },
 ];
 
 const CancelledAppointments: React.FC = () => {
@@ -27,17 +27,20 @@ const CancelledAppointments: React.FC = () => {
   useEffect(() => {
     // Simulated data (In practice, fetch from an API)
     const data = [
-      { id: 1, patient: 'Michael Brown', date: '2024-11-01', time: '9:00 AM', status: 'Cancelled' },
-      { id: 2, patient: 'Emily Clark', date: '2024-11-02', time: '12:30 PM', status: 'No-Show' },
-      { id: 3, patient: 'Daniel Lee', date: '2024-11-03', time: '3:00 PM', status: 'Rescheduled' },
+      { id: 1, age: "34", description: "Appointment request from Michael Anderson for a dental check-up", image: "https://images.unsplash.com/photo-1551918120-9738d9bcd3e2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3", patient: 'Michael Anderson', date: '2024-10-25', time: '3:00 PM', status: 'Cancelled' },
+      { id: 2, age: "28", description: "Consultation request from Sarah Lee for allergy test results", image: "https://images.unsplash.com/photo-1594824476967-b7ef4a94e6c4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3", patient: 'Sarah Lee', date: '2024-10-28', time: '11:00 AM', status: 'Cancelled' },
+      { id: 3, age: "41", description: "Check-up request from David Kim for hypertension follow-up", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3", patient: 'David Kim', date: '2024-10-30', time: '9:30 AM', status: 'Cancelled' },
+      { id: 4, age: "52", description: "Physical examination request from Jessica Brown", image: "https://images.unsplash.com/photo-1524253482453-3fed8d2fe12b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3", patient: 'Jessica Brown', date: '2024-11-01', time: '1:00 PM', status: 'Cancelled' },
+      { id: 5, age: "36", description: "Follow-up appointment request from Robert Johnson for blood work review", image: "https://images.unsplash.com/photo-1593642532973-d31b6557fa68?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3", patient: 'Robert Johnson', date: '2024-11-03', time: '4:45 PM', status: 'Cancelled' },
     ];
     setRows(data.map((i)=>({
-      id: i.id,
+      image: <img className="h-16 w-16 rounded-full mx-auto object-cover" src={i.image} alt="" />,
       patient: i.patient,
-      date: i.date,
-      time: i.time,
+      age:i.age,
+      description: i.description,
       status: (
-        <div className={`${i.status==="Rescheduled"? "text-green-600" : ""} ${i.status==="No-Show"? "text-orange-600" : ""} ${i.status==="Cancelled"? "text-red-600" : ""}`}>{i.status}</div>
+        <div className={`${i.status==="Completed"? "text-green-700" : ""} ${i.status==="No-Show"? "text-orange-600" : ""} ${i.status==="Cancelled"? "text-red-600" : ""}`}>{i.status}</div>
+
       )
     })))
   }, []);

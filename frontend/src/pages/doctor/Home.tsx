@@ -1,9 +1,13 @@
-import Dashboard from './Dashboard';
-import DoctorSidebar from './Sidebar';
 
+import { FcApproval } from "react-icons/fc";
+import { IoIosCheckmarkCircle } from "react-icons/io";
+import { RiCalendarScheduleFill, RiFirstAidKitFill } from "react-icons/ri";
+import { TbBellRingingFilled } from "react-icons/tb";
+import Dashboard from './Dashboard';
 
 const DashboardItems = [
     {
+        icon: <RiFirstAidKitFill className='text-dark-green text-3xl' />,
         id: 1,
         bgColor: "bg-blue-500",
         title: "Total Appointments",
@@ -11,6 +15,7 @@ const DashboardItems = [
         
     },
     {
+        icon: <TbBellRingingFilled className='text-dark-green text-3xl' />,
         id: 2,
         bgColor: "bg-green-500",
         title: "Instant Appointments",
@@ -18,6 +23,7 @@ const DashboardItems = [
         
     },
     {
+        icon: <FcApproval className='text-dark-green text-3xl' />,
         id: 3,
         bgColor: "bg-yellow-500",
         title: "Approved Appointments",
@@ -25,30 +31,29 @@ const DashboardItems = [
         
     },
     {
+        icon: <RiCalendarScheduleFill className='text-dark-green text-3xl' />,
         id: 4,
         bgColor: "bg-orange-500",
         title: "Scheduled Appointments",
         count: 30
-        
     },
     {
+        icon: <IoIosCheckmarkCircle className='text-dark-green text-3xl' />,
         id: 5,
         bgColor: "bg-purple-500",
         title: "Conducted Appointments",
         count: 70
-        
     },
   
 ]
+
+
 const DoctorHome = () => {
     return (
-        <div className='grid grid-cols-[20%_80%] h-screen'>
-            <DoctorSidebar />
-            <div className='w-full p-6'>
-                
-                 <Dashboard name='Khalid Javed' items={DashboardItems} />
-            </div>
-        </div>
+       
+                     <Dashboard name='John Doe' items={DashboardItems} />
+                     
+             
     );
 };
 

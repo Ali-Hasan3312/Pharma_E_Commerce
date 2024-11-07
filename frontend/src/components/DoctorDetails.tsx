@@ -10,7 +10,7 @@ const DoctorDetails = () => {
 
   return (
     <div className='flex flex-col gap-2 justify-center items-center ' style={{ textAlign: 'center', padding: '20px' }}>
-     <div className='flex gap-2 justify-center items-center'>
+     <div className='flex md:flex-row flex-col gap-2 justify-center items-center'>
      <div className='flex flex-col gap-2 justify-center items-center  p-4'>
       <img
         src={doctor.image}

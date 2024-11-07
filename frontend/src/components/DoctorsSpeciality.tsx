@@ -70,10 +70,10 @@ const specialities = [
 const DoctorsSpeciality = () => {
   return (
     <div className=" py-16">
-    <h1 className="text-3xl mt-2 uppercase font-bold px-16">
+    <h1 className="md:text-3xl text-xl max-sm:text-center mt-2 uppercase font-bold px-16">
       Doctors By Specialty
     </h1>
-    <ul className=" grid grid-cols-4 gap-8 mt-10 divide-gray-300">
+    <ul className=" grid grid-cols-3 md:grid-cols-4 gap-8 mt-10 divide-gray-300">
       {specialities.map((store, index) => (
         <li key={index} className="flex items-center relative flex-col">
           <div className=" h-24 w-24 bg-white flex items-center justify-center rounded-full">
@@ -85,10 +85,10 @@ const DoctorsSpeciality = () => {
       ))}
     </ul>
     <div className=" mt-16">
-    <h1 className="text-3xl mt-2 uppercase font-bold px-16">
+    <h1 className="md:text-3xl max-sm:text-center text-xl mt-2 uppercase font-bold px-16">
       Appointments By Doctors
     </h1>
-    <ul className=" grid grid-cols-4 gap-8 mt-10 divide-gray-300">
+    <ul className=" grid grid-cols-3 md:grid-cols-4 gap-4 md:gap-8 mt-10 divide-gray-300">
       {appointments.map((doctor, index) => (
         <li key={index} className="flex items-center gap-2 flex-col">
           <img src={doctor.image} className='w-24 h-24 rounded-full object-cover cursor-pointer' alt="" />
